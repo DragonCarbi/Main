@@ -1,0 +1,43 @@
+#include "stdafx.h"
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+int
+main ()
+{
+  int stime;
+  long ltime;
+
+  ltime = time (NULL);
+  stime = (unsigned int) ltime / 2;
+  srand (stime);
+  int a[6][5], i, j, max;
+  for (i = 0; i < 6; i++)
+    {
+      for (j = 0; j < 5; j++)
+	a[i][j] = rand () % 20 - 10;
+    }
+
+  for (i = 0; i < 6; i++)
+    {
+      for (j = 0; j < 5; j++)
+	printf ("%5d ", a[i][j]);
+      printf ("\n");
+    }
+
+  printf ("------------------------------\n");
+  for (j = 0; j < 6; j++)
+    {
+      max = a[j][0];
+      for (i = 0; i < 6; i++)
+	    if (max < a[j][i])
+	        max = a[j][i];
+      printf ("%5d\n", max);
+
+    }
+
+  system("pause");
+  return 0;
+}
